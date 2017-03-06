@@ -64,7 +64,7 @@ bool init()
  
 int main()
 {
-	//freopen("input.txt","r",stdin);
+	//freopen("input.txt","r",stdin);/
  
 	while(init())
 	{
