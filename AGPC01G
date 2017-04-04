@@ -1,0 +1,54 @@
+/*
+****************************************************************
+****************************************************************
+-> Coded by Stavros Chryselis				   
+-> Visit my github for more solved problems over multiple sites 
+-> https://github.com/StavrosChryselis			  
+-> Feel free to email me at stavrikios@gmail.com	
+****************************************************************
+****************************************************************
+*/
+
+#include <iostream>
+ 
+#define ll long long
+#define MAXN 100007
+using namespace std;
+ 
+const ll MOD = 1000000007;
+int N;
+ll DP[MAXN];
+ 
+inline void pre()
+{
+	int i;
+ 
+	DP[1] = 1;
+	DP[2] = 2;
+ 
+	for (i = 3; i < MAXN; i++)
+	{
+		DP[i] = DP[i - 1] + (i - 1) * DP[i - 2];
+		DP[i] %= MOD;
+	}
+}
+ 
+int main()
+{
+//	freopen("input.txt", "r", stdin);
+	ios::sync_with_stdio(0);
+ 
+	int T, N;
+ 
+	pre();
+ 
+	cin >> T;
+ 
+	while (T--)
+	{
+		cin >> N;
+		cout << DP[N] << "\n";
+	}
+ 
+	return 0;
+} 
