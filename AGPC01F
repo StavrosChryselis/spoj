@@ -1,0 +1,63 @@
+/*
+****************************************************************
+****************************************************************
+-> Coded by Stavros Chryselis				   
+-> Visit my github for more solved problems over multiple sites 
+-> https://github.com/StavrosChryselis			  
+-> Feel free to email me at stavrikios@gmail.com	
+****************************************************************
+****************************************************************
+*/
+
+#include <iostream>
+#include <algorithm>
+ 
+#define MAXN 100007
+using namespace std;
+ 
+int A[MAXN];
+int N, Q;
+ 
+inline void init()
+{
+	int i, num;
+ 
+	cin >> N >> Q;
+ 
+	cin >> A[1];
+ 
+	for (i = 2; i <= N; i++)
+	{
+		cin >> num;
+		A[i] = min(num, A[i - 1]);
+	}
+}
+ 
+inline void solve()
+{
+	int i, num;
+ 
+	for (i = 0; i < Q; i++)
+	{
+		cin >> num;
+		cout << A[num] << "\n";
+	}
+}
+ 
+int main()
+{
+//	freopen("input.txt", "r", stdin);
+	ios::sync_with_stdio(0);
+ 
+	int T;
+ 
+	cin >> T;
+ 
+	while (T--)
+	{
+		init();
+		solve();
+	}
+ 
+	return 0;
+} 
